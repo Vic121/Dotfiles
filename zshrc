@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/marek/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -62,14 +62,14 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -88,8 +88,7 @@ source $ZSH/oh-my-zsh.sh
 
 export GOROOT=/usr/local/opt/go/libexec
 
-export GOPATH=$HOME/Documents/go
-#export GOPATH=$HOME/Documents/go:$HOME/Downloads/qik-tix/manager
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 /usr/local/bin/vim --version > /dev/null 2>&1
