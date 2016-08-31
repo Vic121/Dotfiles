@@ -86,13 +86,15 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Go
 export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$HOME/Documents/go
 
-export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# Brew Vim
 /usr/local/bin/vim --version > /dev/null 2>&1
 BREW_VIM_INSTALLED=$?  
 if [ $BREW_VIM_INSTALLED -eq 0  ]; then  
-      alias vi="/usr/local/bin/vim"
-  fi  
+  alias vi="/usr/local/bin/vim"
+fi
