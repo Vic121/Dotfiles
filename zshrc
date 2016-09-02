@@ -86,10 +86,26 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# OS Detection
+if [[ `uname` == 'Linux'  ]]
+then
+    export LINUX=1
+    export GNU_USERLAND=1
+else
+    export LINUX=
+fi
+
+if [[ `uname` == 'Darwin'  ]]
+then
+    export OSX=1
+else
+    export OSX=
+fi
+
 # Go
-if [ "$(uname)" == "Darwin"  ]; then
+if [[ "$OSX" == "1" ]] then
     export GOROOT=/usr/local/opt/go/libexec
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux"  ]; then
+else
     export GOROOT=/usr/local/go
 fi
 
