@@ -4,7 +4,6 @@ set nospell
 set relativenumber
 
 let g:indent_guides_enable_on_vim_startup = 0 " disable tab highlight
-let DisableAutoPHPFolding = 1
 
 " Disable arrow keys "
 noremap <Up> <NOP>
@@ -21,3 +20,30 @@ function! NumberToggle()
         set relativenumber
     endif
 endfunc
+
+" Go "
+let g:go_fmt_command = "goimports"
+let g:go_snippet_case_type = "camelcase"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+
+function! s:build_go_files()
+    let l:file = expand('%')
+    if l:file =~# '^\f\+_test\.go$'
+        call go#cmd#Test(0, 1)
+    elseif l:file =~# '^\f\+\.go$'
+        call go#cmd#Build(0)
+    endif
+endfunction
+
+autocmd FileType go nmap <Leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <Leader>r <Plug>(go-run)
+autocmd FileType go nmap <Leader>t <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <Leader>a :cclose<CR>
+
+" PHP "
+let DisableAutoPHPFolding = 1
