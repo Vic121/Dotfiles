@@ -87,7 +87,12 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Go
-export GOROOT=/usr/local/opt/go/libexec
+if [ "$(uname)" == "Darwin"  ]; then
+    export GOROOT=/usr/local/opt/go/libexec
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux"  ]; then
+    export GOROOT=/usr/local/go
+fi
+
 export GOPATH=$HOME/Documents/go
 
 export PATH=$PATH:$GOPATH/bin
