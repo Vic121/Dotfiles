@@ -38,5 +38,3 @@
 	name = Marek Mikuliszyn
 [core]
 	autocrlf = input
-[include]
-    path = ~/.gitconfig.local
