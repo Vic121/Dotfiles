@@ -1,3 +1,5 @@
+[init]
+    templatedir = ~/.git_template
 [branch]
 	autosetupmerge = true
 [push]
@@ -36,3 +38,5 @@
 	name = Marek Mikuliszyn
 [core]
 	autocrlf = input
+[include]
+    path = ~/.gitconfig.local
