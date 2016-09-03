@@ -120,5 +120,7 @@ if [ $BREW_VIM_INSTALLED -eq 0  ]; then
   alias vi="/usr/local/bin/vim"
 fi
 
-# Caps Lock as ESC for Vim
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
+if [[ "$LINUX" == "1"  ]] then
+    # Caps Lock as ESC for Vim
+    gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
+fi
