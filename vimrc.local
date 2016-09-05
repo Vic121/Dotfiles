@@ -3,6 +3,7 @@ colorscheme molokai
 set nospell
 set relativenumber
 set nofoldenable
+set nolist
 
 let g:indent_guides_enable_on_vim_startup = 0 " disable tab highlight
 
