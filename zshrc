@@ -111,7 +111,7 @@ fi
 
 export GOPATH=$HOME/Documents/go
 
-export PATH=/usr/local/bin:$PATH:$GOPATH/bin
+export PATH=/usr/local/bin:$PATH:$GOPATH/bin:$HOME/Documents/hyperledger/bin
 
 # Brew Vim
 /usr/local/bin/vim --version > /dev/null 2>&1
