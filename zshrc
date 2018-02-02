@@ -68,7 +68,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -110,8 +110,10 @@ else
 fi
 
 export GOPATH=$HOME/Documents/go
+export ANACONDA=/Users/marek/anaconda2/bin
 
-export PATH=/usr/local/bin:$PATH:$GOPATH/bin:$HOME/Documents/hyperledger/bin
+export PATH=/usr/local/bin:$PATH:$GOPATH/bin:$ANACONDA
+export PATH=/usr/local/opt/node@8/bin:$PATH
 
 # Brew Vim
 /usr/local/bin/vim --version > /dev/null 2>&1
