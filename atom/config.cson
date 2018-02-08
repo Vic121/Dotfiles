@@ -1,0 +1,16 @@
+"*":
+  "atom-beautify":
+    js:
+      beautify_on_save: true
+    json:
+      beautify_on_save: true
+    jsx:
+      beautify_on_save: true
+  core:
+    telemetryConsent: "no"
+  editor:
+    fontSize: 17
+  "exception-reporting":
+    userId: "253034f9-7a7b-43c8-8f1e-8acd1c2e3c19"
+  welcome:
+    showOnStartup: false
