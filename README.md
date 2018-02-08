@@ -19,3 +19,10 @@ Link `.zshrc` file
 ### iTerm
 
 Install Powerline fonts for iTerm by following instructions on https://github.com/powerline/fonts
+
+### Atom
+
+Install Atom editor
+
+Connect configs:
+`ln -s ~/dotfiles/atom/* ~/.atom/``
