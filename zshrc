@@ -126,3 +126,5 @@ if [[ "$LINUX" == "1"  ]] then
     # Caps Lock as ESC for Vim
     gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 fi
+
+export EDITOR='subl -w'

@@ -6,11 +6,16 @@
       beautify_on_save: true
     jsx:
       beautify_on_save: true
+  "autocomplete-python":
+    useKite: false
   core:
     telemetryConsent: "no"
   editor:
-    fontSize: 17
+    tabType: "soft"
+  etheratom: {}
   "exception-reporting":
     userId: "253034f9-7a7b-43c8-8f1e-8acd1c2e3c19"
+  "linter-ui-default":
+    showPanel: true
   welcome:
     showOnStartup: false
