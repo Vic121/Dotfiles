@@ -26,3 +26,5 @@ Install Atom editor
 
 Connect configs:
 `ln -s ~/dotfiles/atom/* ~/.atom/``
+
+https://mwholt.blogspot.be/2012/09/fix-home-and-end-keys-on-mac-os-x.html
