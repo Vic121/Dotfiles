@@ -1,0 +1,48 @@
+[init]
+	templatedir = ~/.git_template
+[branch]
+	autosetupmerge = true
+[push]
+	default = tracking
+[log]
+	decorate = short
+[color]
+	ui = auto
+	interactive = auto
+	diff = auto
+	branch = auto
+	status = auto
+[pager]
+	status = true
+	show-branch = true
+[format]
+	numbered = auto
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	ru = remote update
+	br = branch
+	cam = commit -a -m
+	p = pull
+	pr = pull --rebase
+	praise = blame
+	staged = diff --cached
+	unstaged = diff
+	both = diff HEAD
+	oneline = log --oneline
+	amend = commit --amend
+	undo = reset --hard HEAD^
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	myhist = !git log --author=\"$(git config user.name)\" --format=%H |xargs git show --name-only --format=-------------%n%Cred%s%Creset%n%Cblue%h%Creset
+[user]
+	email = marek.mikuliszyn@gmail.com
+	name = Marek Mikuliszyn
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
