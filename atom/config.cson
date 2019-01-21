@@ -9,6 +9,9 @@
   "autocomplete-python":
     useKite: false
   core:
+    disabledPackages: [
+      "go-plus"
+    ]
     telemetryConsent: "no"
   editor:
     tabType: "soft"
