@@ -20,6 +20,8 @@ Link `.zshrc` file
 
 Install Powerline fonts for iTerm by following instructions on https://github.com/powerline/fonts
 
+Themes https://github.com/mbadolato/iTerm2-Color-Schemes
+
 ### Atom
 
 Install Atom editor
