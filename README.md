@@ -3,7 +3,10 @@
 ## Vim
 Configuration based on [spf13-vim](http://vim.spf13.com/).
 
-Installation `curl http://j.mp/spf13-vim3 -L -o - | sh`
+Installation 
+```bash
+curl http://j.mp/spf13-vim3 -L -o - | sh
+```
 
 ## Use dotfiles
 
@@ -11,10 +14,19 @@ Close repository to your home folder.
 
 ### Zsh
 
-Install `zsh` via `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+Install `zsh` via 
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
 
 Link `.zshrc` file
-`mv .zshrc .zshrc.old` and link one from repo `ln -s dotfiles/zshrc .zshrc`
+```bash
+mv .zshrc .zshrc.old
+``` 
+and link one from repo 
+```bash
+ln -s dotfiles/zshrc .zshrc
+```
 
 ### iTerm
 
@@ -27,6 +39,8 @@ Themes https://github.com/mbadolato/iTerm2-Color-Schemes
 Install Atom editor
 
 Connect configs:
-`ln -s ~/dotfiles/atom/* ~/.atom/``
+```bash
+ln -s ~/dotfiles/atom/* ~/.atom/
+```
 
 https://mwholt.blogspot.be/2012/09/fix-home-and-end-keys-on-mac-os-x.html
