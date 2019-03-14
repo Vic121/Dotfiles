@@ -109,7 +109,7 @@ else
     export GOROOT=/usr/local/go
 fi
 
-export GOPATH=$HOME/Documents/go
+export GOPATH=$HOME/go
 export ANACONDA=/Users/marek/anaconda2/bin
 
 export PATH=/usr/local/bin:$PATH:$GOPATH/bin:$ANACONDA
