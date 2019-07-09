@@ -1,0 +1,25 @@
+# Unix
+alias ll="ls -al"
+alias ln="ln -v"
+alias mkdir="mkdir -p"
+alias e="$EDITOR"
+alias v="$VISUAL"
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
+
+# TERRAFORM
+alias tfp='terraform plan  -out=tf.plan | landscape '
+alias tfpnl='terraform plan  -out=tf.plan'
+# alias tfu='terraform get -update'
+alias tfu='rm -rf .terraform ; until terraform init; do sleep 3; done'
+alias tfa='terraform apply "tf.plan"'
+alias tfup='tfu && tfp'
+alias tfae='
+  cd ~/Code/assertis/infra/tf-assertis/test/apps/ && tfup && \
+  cd ~/Code/assertis/infra/tf-assertis/stage/apps/ && tfup && \
+  cd ~/Code/assertis/infra/tf-assertis/prod/apps/ && tfup'
+
