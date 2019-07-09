@@ -87,7 +87,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
-"Plugin 'Valloric/YouCompleteMe'"
+Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'yegappan/grep'
 
