@@ -107,13 +107,13 @@ if [[ "$OSX" == "1" ]] then
     export GOROOT=/usr/local/opt/go/libexec
     export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 else
-    export GOROOT=/usr/local/go
+    export GOROOT=/snap/go/current
 fi
 
 export GOPATH=$HOME/go
 
-export PATH=/usr/local/bin:$PATH:$GOPATH/bin
 export PATH=/usr/local/opt/node@8/bin:$PATH
+export PATH=/usr/local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
 
 # Brew Vim
 /usr/local/bin/vim --version > /dev/null 2>&1
@@ -122,14 +122,31 @@ if [ $BREW_VIM_INSTALLED -eq 0  ]; then
   alias vi="/usr/local/bin/vim"
 fi
 
-if [[ "$LINUX" == "1"  ]] then
+if [[ "$LINUX" == "1" ]] then
     # Caps Lock as ESC for Vim
     gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 fi
 
-export EDITOR='subl -w'
+if [[ "$LINUX" == "1" ]] then
+    export PATH=$PATH:/home/marek/.local/bin
+fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source $HOME/.zsh_aliases
 
+export EDITOR='subl -w'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+### Snap
+
+# Docker
+if [[ "$LINUX" == "1" ]] then
+    export PATH=$PATH:/snap/docker/current/bin
+fi
