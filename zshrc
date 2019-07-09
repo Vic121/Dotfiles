@@ -105,14 +105,14 @@ fi
 # Go
 if [[ "$OSX" == "1" ]] then
     export GOROOT=/usr/local/opt/go/libexec
+    export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 else
     export GOROOT=/usr/local/go
 fi
 
 export GOPATH=$HOME/go
-export ANACONDA=/Users/marek/anaconda2/bin
 
-export PATH=/usr/local/bin:$PATH:$GOPATH/bin:$ANACONDA
+export PATH=/usr/local/bin:$PATH:$GOPATH/bin
 export PATH=/usr/local/opt/node@8/bin:$PATH
 
 # Brew Vim
@@ -129,9 +129,7 @@ fi
 
 export EDITOR='subl -w'
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+source $HOME/.zsh_aliases
+
