@@ -8,6 +8,11 @@ set relativenumber
 set nofoldenable
 set nolist
 
+" Tags "
+set tags=./tags;/
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 " Disable arrow keys "
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -37,8 +42,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-"  "
-
+" fzf "
+map ; :Files<CR>
 
 "Vundle"
 
@@ -53,6 +58,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'sheerun/vim-polyglot'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -76,6 +83,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 
 Plugin 'scrooloose/nerdtree'
+
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 "Plugin 'Valloric/YouCompleteMe'"
 
