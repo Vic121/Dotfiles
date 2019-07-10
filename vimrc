@@ -87,7 +87,14 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
-Plugin 'Valloric/YouCompleteMe'
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin\n"
+    " Do Mac stuff here 
+  else
+    Plugin 'Valloric/YouCompleteMe'
+  endif
+endif
 
 Plugin 'yegappan/grep'
 
