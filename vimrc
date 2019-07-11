@@ -97,6 +97,9 @@ if has("unix")
   let s:uname = system("uname -s")
   if s:uname == "Darwin\n"
     " Do Mac stuff here 
+	Plugin 'Shougo/deoplete.nvim'
+    Plugin 'roxma/nvim-yarp'
+    Plugin 'roxma/vim-hug-neovim-rpc'
   else
     Plugin 'Valloric/YouCompleteMe'
   endif
@@ -129,3 +132,4 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+let g:deoplete#enable_at_startup = 1
