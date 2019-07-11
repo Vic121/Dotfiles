@@ -115,7 +115,7 @@ if [[ `uname` == 'Darwin'  ]]
 then
     export OSX=1
 
-    export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
+    export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":/Users/marek/Library/Python/3.7/bin:$PATH
 
     # Brew Vim
     /usr/local/bin/vim --version > /dev/null 2>&1
