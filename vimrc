@@ -8,7 +8,13 @@ set relativenumber
 set nofoldenable
 set nolist
 
-" Tags "
+" Tabs
+map <C-up> :tabr<cr>
+map <C-down> :tabl<cr>
+map <C-left> :tabp<cr>
+map <C-right> :tabn<cr>
+
+" Tags 
 set tags=./tags;/
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
