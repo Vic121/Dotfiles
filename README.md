@@ -1,31 +1,35 @@
 # Steps
 
-## Vim
-Configuration based on [spf13-vim](http://vim.spf13.com/).
-
-Installation 
-```bash
-curl http://j.mp/spf13-vim3 -L -o - | sh
-```
-
 ## Use dotfiles
 
-Close repository to your home folder.
+Clone repository to your home folder.
 
-### Zsh
+### Install deps
 
-Install `zsh` via 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo apt-get install tmux
+snap install ...
 ```
 
-Link `.zshrc` file
+or
+
 ```bash
+brew install vim zsh tmux go openssl python readline awscli awslogs ruby terraform terraform_landscape cmake composer jmeter lua jq dep wget node freetype youtube-dl
+```
+
+### Link configs
+
+```bash
+ln -s dotfiles/vimrc .vimrc
 mv .zshrc .zshrc.old
-``` 
-and link one from repo 
-```bash
 ln -s dotfiles/zshrc .zshrc
+ln -s dotfiles/tmux.conf .tmux.conf
+ln -s dotfiles/npmrc .npmrc
+ln -s dotfiles/gitconfig .gitconfig
+ln -s dotfiles/gitignore .gitignore
+ln -s dotfiles/gitmessage .gitmessage
+ln -s dotfiles/git_template .git_template
 ```
 
 ### iTerm
@@ -34,13 +38,6 @@ Install Powerline fonts for iTerm by following instructions on https://github.co
 
 Themes https://github.com/mbadolato/iTerm2-Color-Schemes
 
-### Atom
-
-Install Atom editor
-
-Connect configs:
-```bash
-ln -s ~/dotfiles/atom/* ~/.atom/
-```
+### MacOS
 
 https://mwholt.blogspot.be/2012/09/fix-home-and-end-keys-on-mac-os-x.html

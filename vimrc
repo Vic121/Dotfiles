@@ -19,28 +19,31 @@ set tags=./tags;/
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-" Disable arrow keys "
+" Disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Tabs "
+" Tabs
 set tabstop=4
 autocmd Filetype go setlocal tabstop=4
 
-" Easier split navigation "
+" Easier split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Open new split panes to right and bottom, which feels more natural than Vim’s default: "
+" Open new split panes to right and bottom, which feels more natural than Vim’s default.
 set splitbelow
 set splitright
 
-" NERDTree "
+" NERDTree
 let g:NERDTreeWinPos = "left"
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -48,10 +51,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-" fzf "
+" fzf
 map ; :Files<CR>
 
-"Vundle"
+" Vundle
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -64,6 +67,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'christoomey/vim-tmux-navigator'
 
 Plugin 'sheerun/vim-polyglot'
 
@@ -89,6 +94,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
@@ -132,4 +138,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-let g:deoplete#enable_at_startup = 1
+
+if has("unix")
+  let s:uname = system("uname -s")
+
+  " Mac
+  if s:uname == "Darwin\n"
+	let g:deoplete#enable_at_startup = 1
+  " Non-Mac
+  else
+
+  endif
+endif

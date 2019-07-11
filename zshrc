@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+source $HOME/.zsh_aliases
+
+export EDITOR='subl -w'
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -87,66 +91,45 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # OS Detection
+export OSX=
+export LINUX=
+
 if [[ `uname` == 'Linux'  ]]
 then
     export LINUX=1
     export GNU_USERLAND=1
-else
-    export LINUX=
+
+    export PATH=$PATH:/home/marek/.local/bin
+
+    # Docker via Snap
+    export PATH=$PATH:/snap/docker/current/bin
+
+    # Go via Snap
+    export GOROOT=/snap/go/current
+
+    # Caps Lock as ESC for Vim
+    gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"  
 fi
 
 if [[ `uname` == 'Darwin'  ]]
 then
     export OSX=1
-else
-    export OSX=
+
+    export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
+
+    # Brew Vim
+    /usr/local/bin/vim --version > /dev/null 2>&1
+    BREW_VIM_INSTALLED=$?  
+    if [ $BREW_VIM_INSTALLED -eq 0  ]; then  
+      alias vi="/usr/local/bin/vim"
+    fi
+
+    # Go
+    export GOROOT=/usr/local/bin
+    
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
 # Go
-if [[ "$OSX" == "1" ]] then
-    export GOROOT=/usr/local/opt/go/libexec
-    export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-else
-    export GOROOT=/snap/go/current
-fi
-
 export GOPATH=$HOME/go
-
-export PATH=/usr/local/opt/node@8/bin:$PATH
-export PATH=/usr/local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
-
-# Brew Vim
-/usr/local/bin/vim --version > /dev/null 2>&1
-BREW_VIM_INSTALLED=$?  
-if [ $BREW_VIM_INSTALLED -eq 0  ]; then  
-  alias vi="/usr/local/bin/vim"
-fi
-
-if [[ "$LINUX" == "1" ]] then
-    # Caps Lock as ESC for Vim
-    gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
-fi
-
-if [[ "$LINUX" == "1" ]] then
-    export PATH=$PATH:/home/marek/.local/bin
-fi
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-source $HOME/.zsh_aliases
-
-export EDITOR='subl -w'
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-### Snap
-
-# Docker
-if [[ "$LINUX" == "1" ]] then
-    export PATH=$PATH:/snap/docker/current/bin
-fi
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
