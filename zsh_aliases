@@ -1,3 +1,5 @@
+alias python="/usr/local/bin/python3"
+
 # Unix
 alias ll="ls -al"
 alias ln="ln -v"
