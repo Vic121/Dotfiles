@@ -8,14 +8,14 @@ Clone repository to your home folder.
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo apt-get install tmux
-snap install ...
+sudo apt-get install tmux vim fzf tree curl wget
+snap install go ...
 ```
 
 or
 
 ```bash
-brew install vim zsh tmux go openssl python readline awscli awslogs ruby terraform terraform_landscape cmake composer jmeter lua jq dep wget node freetype youtube-dl
+brew install vim zsh tmux fzf tree go openssl python readline awscli awslogs ruby terraform terraform_landscape cmake composer jmeter lua jq dep wget node freetype youtube-dl
 ```
 
 ### Link configs
