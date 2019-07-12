@@ -5,8 +5,17 @@ syntax enable
 
 set nospell
 set relativenumber
-set nofoldenable
+" set nofoldenable
 set nolist
+
+" Folding
+set foldmethod=manual
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 
 " Tabs
 map <C-up> :tabr<cr>
