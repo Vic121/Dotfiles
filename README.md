@@ -11,12 +11,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 sudo apt-get install tmux vim fzf tree curl wget
 snap install go docker node
 pip install --user tmuxp
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 or
 
 ```bash
 brew install vim zsh tmux fzf tree go openssl python readline awscli awslogs ruby terraform terraform_landscape cmake composer jmeter lua jq dep wget node freetype youtube-dl
+pip install --user tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 ### Link configs
