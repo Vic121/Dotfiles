@@ -9,7 +9,8 @@ Clone repository to your home folder.
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo apt-get install tmux vim fzf tree curl wget
-snap install go ...
+snap install go docker node
+pip install --user tmuxp
 ```
 
 or
