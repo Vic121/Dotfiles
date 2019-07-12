@@ -125,7 +125,7 @@ then
     fi
 
     # Go
-    export GOROOT=/usr/local/bin
+    export GOROOT=/usr/local/opt/go/libexec
     
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
