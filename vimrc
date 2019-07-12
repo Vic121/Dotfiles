@@ -39,8 +39,12 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+" Quick vertical split
+nnoremap <silent> vv <C-w>v
+
 " NERDTree
 let g:NERDTreeWinPos = "left"
+map <C-n> :NERDTreeToggle<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
