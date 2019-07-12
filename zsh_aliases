@@ -7,11 +7,18 @@ alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
+pull_all() {
+		if [ "$1" != "" ]
+		then
+				find . -maxdepth "$1" -type d \( ! -name . \) -exec bash -c "cd '{}' && pwd && git pull --rebase" \;
+		else
+				find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && pwd && git pull --rebase" \;
+		fi
+}
+
+# Pretty print the path
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
-
-# Include custom aliases
-[[ -f ~/.aliases.local ]] && source ~/.aliases.local
 
 # TERRAFORM
 alias tfp='terraform plan  -out=tf.plan | landscape '
