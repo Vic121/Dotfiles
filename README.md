@@ -9,17 +9,28 @@ Clone repository to your home folder.
 ```bash
 sudo apt-get install git zsh tmux vim tree curl wget
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-snap install go docker node
-pip install --user tmuxp
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 or
 
 ```bash
-brew install git vim zsh tmux fzf tree go openssl python readline awscli awslogs ruby terraform terraform_landscape cmake composer jmeter lua jq dep wget node freetype youtube-dl
-pip install --user tmux
+brew install git vim zsh tmux fzf tree openssl python cmake wget freetype
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+### Extras
+
+```bash
+snap install go docker node
+pip install --user tmuxp
+```
+
+or
+
+```bash
+brew install go readline awscli awslogs ruby terraform terraform_landscape composer jmeter lua jq dep node youtube-dl
+pip install --user tmuxp
 ```
 
 ### Link configs
