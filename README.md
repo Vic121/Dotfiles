@@ -7,8 +7,8 @@ Clone repository to your home folder.
 ### Install deps
 
 ```bash
+sudo apt-get install git zsh tmux vim tree curl wget
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo apt-get install git tmux vim fzf tree curl wget
 snap install go docker node
 pip install --user tmuxp
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
