@@ -16,9 +16,6 @@ pull_all() {
 		fi
 }
 
-alias gp="git pull --rebase"
-
-# Pretty print the path
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
