@@ -7,7 +7,7 @@ alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
-pull_all() {
+pullall() {
 		if [ "$1" != "" ]
 		then
 				find . -maxdepth "$1" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pull --rebase" \;
