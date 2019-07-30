@@ -6,13 +6,15 @@ Clone repository to your home folder.
 
 ### Install deps
 
+*Ubuntu*
+
 ```bash
 sudo apt-get install git zsh tmux vim tree curl wget xclip
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-or
+*MacOS*
 
 ```bash
 brew install git vim zsh tmux fzf tree openssl python cmake wget freetype
@@ -21,15 +23,17 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ### Extras
 
+*Ubuntu* 
+
 ```bash
-snap install go docker node
-pip install --user tmuxp
+snap install go docker node python-pip libpq-dev python-dev
+pip install --user tmuxp pgcli
 ```
 
-or
+*MacOS*
 
 ```bash
-brew install go readline awscli awslogs ruby terraform terraform_landscape composer jmeter lua jq dep node youtube-dl
+brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node youtube-dl
 pip install --user tmuxp
 ```
 
