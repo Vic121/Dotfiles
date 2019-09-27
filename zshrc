@@ -6,7 +6,7 @@ source $HOME/.zsh_aliases
 export EDITOR='subl -w'
 
 export FILE="ranger"
-export TERMINAL="i3-sensible-terminal"
+export TERMINAL="terminator"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -102,7 +102,7 @@ then
     export LINUX=1
     export GNU_USERLAND=1
 
-    export PATH=$PATH:/home/marek/.local/bin
+    export PATH=$PATH:/snap/bin:/home/marek/.local/bin
 
     # Docker via Snap
     export PATH=$PATH:/snap/docker/current/bin
