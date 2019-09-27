@@ -5,6 +5,9 @@ source $HOME/.zsh_aliases
 
 export EDITOR='subl -w'
 
+export FILE="ranger"
+export TERMINAL="i3-sensible-terminal"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
