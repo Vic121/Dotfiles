@@ -29,6 +29,7 @@ sudo snap install sublime-text --classic
 sudo snap install code --classic
 sudo snap install slack --classic
 snap install go --classic
+sudo snap install node --channel=13/stable --classic
 sudo snap install slack --classic
 snap install docker node terraform chromium vlc spotify
 sudo apt-add-repository --yes --update ppa:ansible/ansible
