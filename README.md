@@ -9,9 +9,10 @@ Clone repository to your home folder.
 *Ubuntu*
 
 ```bash
-sudo apt-get install git zsh tmux vim tree curl wget xclip
+sudo apt-get install git zsh tmux vim tree curl wget xclip fonts-powerline
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 *MacOS*
@@ -40,7 +41,6 @@ pip install --user tmuxp
 ### Link configs
 
 ```bash
-ln -s dotfiles/vimrc .vimrc
 mv .zshrc .zshrc.old
 ln -s dotfiles/zshrc .zshrc
 ln -s dotfiles/tmux.conf .tmux.conf
@@ -49,6 +49,15 @@ ln -s dotfiles/gitignore .gitignore
 ln -s dotfiles/gitmessage .gitmessage
 ln -s dotfiles/git_template .git_template
 ```
+
+### Vim
+
+```bash
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+ln -s dotfiles/vimrc .vimrc
+```
+
+Launch `vim` and run `:PluginInstall`
 
 ### iTerm
 
