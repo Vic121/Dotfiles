@@ -77,7 +77,7 @@ Install Powerline fonts for iTerm by following instructions on https://github.co
 
 Themes https://github.com/mbadolato/iTerm2-Color-Schemes
 
-### Ubuntu
+## Ubuntu
 
 ### Jetbrains
 
@@ -89,3 +89,10 @@ sudo snap install webstorm --classic
 sudo snap install datagrip --classic
 sudo snap install goland --classic
 ```
+### Other stuff
+
+- [Brave browser](https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux)
+- [Transmission](https://transmissionbt.com/download/)
+- [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
+- [Signal](https://signal.org/download/)
+- Whatsdesk - `sudo snap install whatsdesk`
