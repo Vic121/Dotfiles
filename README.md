@@ -7,7 +7,7 @@ Clone repository to your home folder.
 ### Ubuntu
 
 ```bash
-sudo apt install git ssh zsh tmux vim tree curl wget xclip fonts-powerline software-properties-common gcc make terminator
+sudo apt install git ssh zsh tmux vim tree curl wget htop xclip fonts-powerline software-properties-common gcc make terminator
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -31,7 +31,8 @@ sudo snap install slack --classic
 snap install go --classic
 sudo snap install node --channel=13/stable --classic
 sudo snap install slack --classic
-snap install docker node terraform chromium vlc spotify
+snap install --beta filezilla
+snap install docker node terraform chromium postman vlc spotify
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 apt install python-pip libpq-dev python-dev vpnc mc
