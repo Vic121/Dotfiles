@@ -92,7 +92,7 @@ sudo snap install goland --classic
 ### Other stuff
 
 - [Brave browser](https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux)
-- [Transmission](https://transmissionbt.com/download/)
+- Transmission - `sudo apt install transmission`
 - [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
 - [Signal](https://signal.org/download/)
 - Whatsdesk - `sudo snap install whatsdesk`
