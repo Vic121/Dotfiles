@@ -89,6 +89,17 @@ sudo snap install webstorm --classic
 sudo snap install datagrip --classic
 sudo snap install goland --classic
 ```
+
+### KVM
+
+https://help.ubuntu.com/community/KVM/Installation
+
+```bash
+sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+sudo adduser `id -un` libvirt
+
+```
+
 ### Other stuff
 
 - [Brave browser](https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux)
