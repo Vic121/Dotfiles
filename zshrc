@@ -136,3 +136,5 @@ fi
 # Go
 export GOPATH=$HOME/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
