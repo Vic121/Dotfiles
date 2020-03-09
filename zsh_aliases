@@ -5,13 +5,24 @@ alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
+each() {
+	echo "$@"
+
+	if [ "$1" = "git" ] && [ "$2" = "pr" ]; then
+		find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pr" \;
+	elif [ "$1" = "composer" ] && [ "$2" = "install" ]; then
+		find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -f 'composer.json' ] && pwd && composer install" \;
+	elif [ "$1" = "npm" ] && [ "$2" = "install" ]; then
+		find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -f 'package.json' ] && pwd && npm install" \;
+	fi
+}
+
 pullall() {
-		if [ "$1" != "" ]
-		then
-				find . -maxdepth "$1" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pull --rebase" \;
-		else
-				find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pull --rebase" \;
-		fi
+	if [ "$2" != "" ]; then
+		find . -maxdepth "$1" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pull --rebase" \;
+	else
+		find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pull --rebase" \;
+	fi
 }
 
 # Pretty print the path
@@ -28,4 +39,3 @@ alias tfae='
   cd ~/Code/assertis/infra/tf-assertis/test/apps/ && tfup && \
   cd ~/Code/assertis/infra/tf-assertis/stage/apps/ && tfup && \
   cd ~/Code/assertis/infra/tf-assertis/prod/apps/ && tfup'
-
