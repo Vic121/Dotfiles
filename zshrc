@@ -5,15 +5,14 @@ source $HOME/.zsh_aliases
 
 export EDITOR='subl -w'
 
-export FILE="ranger"
 export TERMINAL="terminator"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 DEFAULT_USER="marek"
 
@@ -59,7 +58,7 @@ DEFAULT_USER="marek"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git ansible aws common-aliases extract python docker)
 
 # User configuration
 
@@ -102,13 +101,20 @@ then
     export LINUX=1
     export GNU_USERLAND=1
 
-    export PATH=$PATH:/snap/bin:/home/marek/.local/bin
+	# Snap
+    export PATH=$PATH:/snap/bin
 
     # Docker via Snap
     export PATH=$PATH:/snap/docker/current/bin
 
-    # Go via Snap
+	# Pip
+	export PATH=$PATH:~/.local/bin
+
+    # GOROOT via Snap
     export GOROOT=/snap/go/current
+
+	# Homebrew
+	export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 
     # Caps Lock as ESC for Vim
     gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"  
@@ -137,4 +143,8 @@ fi
 export GOPATH=$HOME/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
+# Kube
+source <(kubectl completion zsh)
+
+# Search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

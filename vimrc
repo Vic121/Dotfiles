@@ -5,7 +5,7 @@ syntax enable
 
 set nospell
 set relativenumber
-" set nofoldenable
+set nofoldenable
 set nolist
 
 " Folding
@@ -37,6 +37,7 @@ noremap <Right> <NOP>
 " Tabs
 set tabstop=4
 autocmd Filetype go setlocal tabstop=4
+autocmd FileType markdown setlocal expandtab shiftwidth=4 softtabstop=4
 
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -132,6 +133,10 @@ Plugin 'sickill/vim-monokai'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+" Markdown - https://github.com/plasticboy/vim-markdown "
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " Goyo - https://github.com/junegunn/goyo.vim "
 Plugin 'junegunn/goyo.vim'

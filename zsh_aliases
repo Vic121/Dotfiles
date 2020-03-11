@@ -28,7 +28,7 @@ pullall() {
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-# TERRAFORM
+# Terraform
 alias tfp='terraform plan  -out=tf.plan | landscape '
 alias tfpnl='terraform plan  -out=tf.plan'
 # alias tfu='terraform get -update'
@@ -39,3 +39,6 @@ alias tfae='
   cd ~/Code/assertis/infra/tf-assertis/test/apps/ && tfup && \
   cd ~/Code/assertis/infra/tf-assertis/stage/apps/ && tfup && \
   cd ~/Code/assertis/infra/tf-assertis/prod/apps/ && tfup'
+
+# Kubectl
+alias k='kubectl'
