@@ -115,6 +115,10 @@ Plugin 'majutsushi/tagbar'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
+Plugin 'michal-h21/vim-zettel'
+let g:zettel_options = [{"front_matter" : {"tags" : ""}, "template" : "~/wiki/template.tpl"}, {}]
+let g:zettel_format = "%y%m%d%H%M-%title"
+
 if has("unix")
   let s:uname = system("uname -s")
   if s:uname == "Darwin\n"
