@@ -108,6 +108,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 
 Plugin 'scrooloose/nerdtree'
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 Plugin 'majutsushi/tagbar'
 
 Plugin 'junegunn/fzf'
@@ -143,8 +145,10 @@ Plugin 'junegunn/goyo.vim'
 
 " Wiki "
 Plugin 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/wiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/wiki/', 'auto_toc': 1, 'auto_tags': 1, 'auto_diary_index': 1, 'list_margin': 0, 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_use_mouse = 1
+let g:vimwiki_auto_chdir = 1
+let g:vimwiki_listsyms = '✗○◐●✓'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
