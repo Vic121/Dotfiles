@@ -9,6 +9,7 @@ Clone repository to your home folder.
 ```bash
 sudo apt install git ssh zsh tmux vim tree curl wget htop xclip fonts-powerline software-properties-common gcc make python-pip libpq-dev python-dev
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
@@ -17,6 +18,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ```bash
 brew install git ssh zsh vim tmux fzf tree openssl python cmake wget freetype
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
