@@ -141,6 +141,11 @@ Plugin 'plasticboy/vim-markdown'
 " Goyo - https://github.com/junegunn/goyo.vim "
 Plugin 'junegunn/goyo.vim'
 
+" Wiki "
+Plugin 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/wiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
