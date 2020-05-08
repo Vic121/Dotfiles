@@ -5,7 +5,7 @@
 ### Reqs
 
 ```bash
-sudo apt install -y git ssh build-essential curl file tmux screen mc tree curl wget htop xclip fonts-powerline software-properties-common gcc make python-pip libpq-dev python-dev apt-transport-https ca-certificates gnupg-agent gnupg2
+sudo apt install -y git ssh build-essential curl file tmux screen mc tree curl wget htop xclip fonts-powerline software-properties-common gcc make pipx libpq-dev python-dev apt-transport-https ca-certificates gnupg-agent gnupg2
 git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
 
 ; Zsh
@@ -20,13 +20,16 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ; Configs via dotfiles repo
 git clone https://github.com/yezooz/dotfiles.git ~/dotfiles
-mv ~/.zshrc ~/.zshrc.old && ln -s ~/dotfiles/zshrc ~/.zshrc
+mv ~/.zshrc ~/.zshrc.old 2>/dev/null
+ln -s ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/gitignore ~/.gitignore
 ln -s ~/dotfiles/gitmessage ~/.gitmessage
 ln -s ~/dotfiles/git_template ~/.git_template
-mv ~/.vimrc ~/.vimrc.old && ln -s ~/dotfiles/vimrc ~/.vimrc
+mv ~/.vimrc ~/.vimrc.old 2>/dev/null
+ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vim/colors ~/.vim/colors
 ```
 

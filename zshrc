@@ -113,7 +113,7 @@ if [[ $(uname) == 'Linux' ]]; then
   export GOROOT=/snap/go/current
 
   # Homebrew
-  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+  export PATH=$PATH:~/.linuxbrew/Homebrew/bin
 
   # Caps Lock as ESC for Vim
   gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
@@ -122,7 +122,7 @@ fi
 if [[ $(uname) == 'Darwin' ]]; then
   export OSX=1
 
-  export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":/Users/marek/Library/Python/3.7/bin:$PATH
+  export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":~/Library/Python/3.7/bin:$PATH
 
   # Brew Vim
   /usr/local/bin/vim --version >/dev/null 2>&1
@@ -134,15 +134,15 @@ if [[ $(uname) == 'Darwin' ]]; then
   # Go
   export GOROOT=/usr/local/opt/go/libexec
 
+   # Composer
+  export PATH=~/.composer/vendor/bin:$PATH
+
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
 # Go
 export GOPATH=$HOME/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-
-# Composer (PHP)
-export PATH=/Users/marek/.composer/vendor/bin:$PATH
 
 # Kube
 source <(kubectl completion zsh)
