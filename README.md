@@ -5,7 +5,7 @@
 ### Reqs
 
 ```bash
-sudo apt install -y git ssh build-essential curl file tmux screen mc tree curl wget htop xclip fonts-powerline software-properties-common gcc make pipx libpq-dev python-dev apt-transport-https ca-certificates gnupg-agent gnupg2
+sudo apt install -y git ssh build-essential curl file tmux screen mc tree curl wget htop xclip fonts-powerline software-properties-common gcc make pipx libpq-dev python-dev apt-transport-https ca-certificates gnupg-agent gnupg2 terminator
 git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
 
 ; Zsh
@@ -22,7 +22,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/yezooz/dotfiles.git ~/dotfiles
 mv ~/.zshrc ~/.zshrc.old 2>/dev/null
 ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/gitignore ~/.gitignore
@@ -37,7 +36,7 @@ ln -s ~/dotfiles/vim/colors ~/.vim/colors
 
 ```bash
 sudo apt-get update
-sudo apt install -y terminator vpnc ansible
+sudo apt install -y vpnc
 brew install terraform terragrunt terraform_landscape node typescript jsonnet go composer clojure aws-iam-authenticator pgcli
 pip install --user tmuxp
 
@@ -46,11 +45,11 @@ sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install -y ansible
 
 ; Docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository --yes --update "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt -y install docker-ce docker-ce-cli containerd.io
-sudo usermod -aG docker $USER
+sudo addgroup --system docker
+sudo adduser $USER docker
+sudo snap install docker
+newgrp docker
+sudo snap restart docker
 brew install docker-completion docker-compose docker-compose-completion docker-machine docker-machine-completion
 
 ; K8s
