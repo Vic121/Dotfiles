@@ -96,52 +96,53 @@ fi
 export OSX=
 export LINUX=
 
-if [[ `uname` == 'Linux'  ]]
-then
-    export LINUX=1
-    export GNU_USERLAND=1
+if [[ $(uname) == 'Linux' ]]; then
+  export LINUX=1
+  export GNU_USERLAND=1
 
-	# Snap
-    export PATH=$PATH:/snap/bin
+  # Snap
+  export PATH=$PATH:/snap/bin
 
-    # Docker via Snap
-    export PATH=$PATH:/snap/docker/current/bin
+  # Docker via Snap
+  export PATH=$PATH:/snap/docker/current/bin
 
-	# Pip
-	export PATH=$PATH:~/.local/bin
+  # Pip
+  export PATH=$PATH:~/.local/bin
 
-    # GOROOT via Snap
-    export GOROOT=/snap/go/current
+  # GOROOT via Snap
+  export GOROOT=/snap/go/current
 
-	# Homebrew
-	export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+  # Homebrew
+  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 
-    # Caps Lock as ESC for Vim
-    gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"  
+  # Caps Lock as ESC for Vim
+  gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 fi
 
-if [[ `uname` == 'Darwin'  ]]
-then
-    export OSX=1
+if [[ $(uname) == 'Darwin' ]]; then
+  export OSX=1
 
-    export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":/Users/marek/Library/Python/3.7/bin:$PATH
+  export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":/Users/marek/Library/Python/3.7/bin:$PATH
 
-    # Brew Vim
-    /usr/local/bin/vim --version > /dev/null 2>&1
-    BREW_VIM_INSTALLED=$?  
-    if [ $BREW_VIM_INSTALLED -eq 0  ]; then  
-      alias vi="/usr/local/bin/vim"
-    fi
+  # Brew Vim
+  /usr/local/bin/vim --version >/dev/null 2>&1
+  BREW_VIM_INSTALLED=$?
+  if [ $BREW_VIM_INSTALLED -eq 0 ]; then
+    alias vi="/usr/local/bin/vim"
+  fi
 
-    # Go
-    export GOROOT=/usr/local/opt/go/libexec
-    
-    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+  # Go
+  export GOROOT=/usr/local/opt/go/libexec
+
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
 # Go
 export GOPATH=$HOME/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+# Composer (PHP)
+export PATH=/Users/marek/.composer/vendor/bin:$PATH
 
 # Kube
 source <(kubectl completion zsh)
@@ -151,4 +152,3 @@ source <(kubectl completion zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
