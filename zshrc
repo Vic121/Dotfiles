@@ -113,7 +113,7 @@ if [[ $(uname) == 'Linux' ]]; then
   export GOROOT=/snap/go/current
 
   # Homebrew
-  export PATH=$PATH:~/.linuxbrew/Homebrew/bin
+  export PATH=$PATH:~/.linuxbrew/bin
 
   # Caps Lock as ESC for Vim
   gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
