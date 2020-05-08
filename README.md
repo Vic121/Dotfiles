@@ -1,87 +1,76 @@
 # Use dotfiles
 
-Clone repository to your home folder.
+## Ubuntu
 
-## Install deps
-
-### Ubuntu
+### Reqs
 
 ```bash
-sudo apt install git ssh zsh tmux vim tree curl wget htop xclip fonts-powerline software-properties-common gcc make python-pip libpq-dev python-dev
+sudo apt install -y git ssh build-essential curl file tmux screen mc tree curl wget htop xclip fonts-powerline software-properties-common gcc make python-pip libpq-dev python-dev apt-transport-https ca-certificates gnupg-agent gnupg2
+git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
+
+; Zsh
+sudo apt install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+; Vim
+sudo apt install -y vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+; Configs via dotfiles repo
+git clone https://github.com/yezooz/dotfiles.git ~/dotfiles
+mv ~/.zshrc ~/.zshrc.old && ln -s ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/gitignore ~/.gitignore
+ln -s ~/dotfiles/gitmessage ~/.gitmessage
+ln -s ~/dotfiles/git_template ~/.git_template
+mv ~/.vimrc ~/.vimrc.old && ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/dotfiles/vim/colors ~/.vim/colors
 ```
 
-### MacOS
+### Dev tools
 
 ```bash
-brew install git ssh zsh vim tmux fzf tree openssl python cmake wget freetype
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
+sudo apt-get update
+sudo apt install -y terminator vpnc ansible
+brew install terraform terragrunt terraform_landscape node typescript jsonnet go composer clojure aws-iam-authenticator pgcli
+pip install --user tmuxp
 
-## Extras
-
-### Ubuntu
-
-```bash
+; Ansible
 sudo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt install terminator vpnc mc ansible
-sudo snap install docker node terraform chromium postman vlc spotify
+sudo apt install -y ansible
+
+; Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository --yes --update "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt -y install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker $USER
+brew install docker-completion docker-compose docker-compose-completion docker-machine docker-machine-completion
+
+; K8s
+brew install kubectl eksctl k9s helm kubectx
+
+; Minikube + KVM
+sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+sudo adduser `id -un` libvirt
+sudo adduser `id -un` kvm
+brew install minikube
+```
+
+### Desktop tools
+
+```bash
+sudo snap install chromium postman vlc spotify whatsdesk
 sudo snap install sublime-text --classic
 sudo snap install code --classic
-sudo snap install go --classic
-sudo snap install node --channel=13/stable --classic
 sudo snap install slack --classic
 sudo snap install filezilla --beta
-pip install --user tmuxp pgcli
 ```
 
-### MacOS
-
-```bash
-brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node youtube-dl
-pip install --user tmuxp
-```
-
-## Configs
-
-```bash
-mv .zshrc .zshrc.old
-ln -s dotfiles/zshrc .zshrc
-ln -s dotfiles/tmux.conf .tmux.conf
-ln -s dotfiles/gitconfig .gitconfig
-ln -s dotfiles/gitignore .gitignore
-ln -s dotfiles/gitmessage .gitmessage
-ln -s dotfiles/git_template .git_template
-```
-
-## Vim
-
-```bash
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-ln -s dotfiles/vimrc .vimrc
-mkdir .vim/colors
-cp dotfiles/vim/colors/* .vim/colors/
-```
-
-Launch `vim` and run `:PluginInstall`
-
-## MacOS
-
-https://mwholt.blogspot.be/2012/09/fix-home-and-end-keys-on-mac-os-x.html
-
-### iTerm
-
-Install Powerline fonts for iTerm by following instructions on https://github.com/powerline/fonts
-
-Themes https://github.com/mbadolato/iTerm2-Color-Schemes
-
-## Ubuntu
-
-### Jetbrains
+#### Jetbrains
 
 ```bash
 sudo snap install pycharm-professional --classic
@@ -92,20 +81,71 @@ sudo snap install datagrip --classic
 sudo snap install goland --classic
 ```
 
-### KVM
+### iTerm
 
-https://help.ubuntu.com/community/KVM/Installation
+Install Powerline fonts for iTerm by following instructions on https://github.com/powerline/fonts
+
+Themes https://github.com/mbadolato/iTerm2-Color-Schemes
+
+## MacOS
+
+### Reqs
 
 ```bash
-sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
-sudo adduser `id -un` libvirt
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+brew install git ssh tmux fzf tree openssl python cmake wget freetype
 
+; Zsh
+brew install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+; Vim
+brew install vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+; Configs via dotfiles repo
+git clone https://github.com/yezooz/dotfiles.git ~/dotfiles
+mv ~/.zshrc ~/.zshrc.old && ln -s ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/gitignore ~/.gitignore
+ln -s ~/dotfiles/gitmessage ~/.gitmessage
+ln -s ~/dotfiles/git_template ~/.git_template
+mv ~/.vimrc ~/.vimrc.old && ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/dotfiles/vim/colors ~/.vim/colors
 ```
 
-### Other stuff
+### Dev tools
 
-- [Brave browser](https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux)
-- Transmission - `sudo apt install transmission`
-- [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
-- [Signal](https://signal.org/download/)
-- Whatsdesk - `sudo snap install whatsdesk`
+```bash
+brew cask install virtualbox virtualbox-extension-pack vagrant jetbrains-toolbox
+brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node clojure memcached mysql-client nmap openjdk php
+pip install --user tmuxp
+
+; Docker
+brew cask install docker-toolbox
+brew install vagrant-completion docker-completion docker-compose docker-compose-completion docker-machine docker-machine-completion
+
+; K8s
+brew install kubectl eksctl k9s helm kubectx minikube
+```
+
+### Desktop tools
+
+```bash
+brew install iterm2
+brew cask install sublime-text visual-studio-code slack 
+```
+
+### Extras
+
+```bash
+brew install youtube-dl
+brew cask install transmission whatsapp signal
+```
+
+https://mwholt.blogspot.be/2012/09/fix-home-and-end-keys-on-mac-os-x.html
+
+Launch `vim` and run `:PluginInstall`
