@@ -122,12 +122,12 @@ ln -s ~/dotfiles/vim/colors ~/.vim/colors
 ### Dev tools
 
 ```bash
-brew cask install virtualbox virtualbox-extension-pack vagrant jetbrains-toolbox
+brew cask install xquartz virtualbox virtualbox-extension-pack vagrant jetbrains-toolbox iterm2 sublime-text visual-studio-code
 brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node clojure memcached mysql-client nmap openjdk php
 pip install --user tmuxp
 
 ; Docker
-brew cask install docker-toolbox
+brew cask install docker docker-toolbox
 brew install vagrant-completion docker-completion docker-compose docker-compose-completion docker-machine docker-machine-completion
 
 ; K8s
@@ -137,16 +137,11 @@ brew install kubectl eksctl k9s helm kubectx minikube
 ### Desktop tools
 
 ```bash
-brew install iterm2
-brew cask install sublime-text visual-studio-code slack 
+brew cask install alfred slack google-chrome firefox postman vlc spotify transmission whatsapp signal dropbox 1password the-unarchiver mysqlworkbench karabiner-elements
+brew install youtube-dl
 ```
 
 ### Extras
-
-```bash
-brew install youtube-dl
-brew cask install transmission whatsapp signal
-```
 
 https://mwholt.blogspot.be/2012/09/fix-home-and-end-keys-on-mac-os-x.html
 
