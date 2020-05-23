@@ -5,24 +5,34 @@ alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
-each() {
-	echo "$@"
-
-	if [ "$1" = "git" ] && [ "$2" = "pr" ]; then
-		find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pr" \;
-	elif [ "$1" = "composer" ] && [ "$2" = "install" ]; then
-		find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -f 'composer.json' ] && pwd && composer install" \;
-	elif [ "$1" = "npm" ] && [ "$2" = "install" ]; then
-		find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -f 'package.json' ] && pwd && npm install" \;
-	fi
+upgrade() {
+		brew update
+		brew upgrade
+		brew cask upgrade
+		composer global update
+		npm update -g
 }
 
-pullall() {
-	if [ "$2" != "" ]; then
-		find . -maxdepth "$1" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pull --rebase" \;
-	else
-		find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pull --rebase" \;
+up_all() {
+	local level="$1"
+	if [[ -z "${level}" ]]; then
+		level=1
 	fi
+
+	find . -maxdepth "$level" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pr" \;
+	find . -maxdepth "$level" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -f 'composer.json' ] && pwd && composer install" \;
+	#find . -maxdepth "$level" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -f 'package.json' ] && pwd && npm install" \;
+}
+
+bump_all() {
+	local level="$1"
+	if [[ -z "${level}" ]]; then
+		level=1
+	fi
+
+	find . -maxdepth "$level" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -d '.git' ] && pwd && git pr" \;
+	find . -maxdepth "$level" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -f 'composer.json' ] && pwd && composer update" \;
+	find . -maxdepth "$level" -type d \( ! -name . \) -exec bash -c "cd '{}' && [ -f 'package.json' ] && pwd && npm update" \;
 }
 
 # Pretty print the path
@@ -42,3 +52,4 @@ alias tfae='
 
 # Kubectl
 alias k='kubectl'
+
