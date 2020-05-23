@@ -115,10 +115,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
-Plugin 'michal-h21/vim-zettel'
-let g:zettel_options = [{"front_matter" : {"tags" : ""}, "template" : "~/wiki/template.tpl"}, {}]
-let g:zettel_format = "%y%m%d%H%M-%title"
-
 if has("unix")
   let s:uname = system("uname -s")
   if s:uname == "Darwin\n"
@@ -146,13 +142,6 @@ Plugin 'plasticboy/vim-markdown'
 
 " Goyo - https://github.com/junegunn/goyo.vim "
 Plugin 'junegunn/goyo.vim'
-
-" Wiki "
-Plugin 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/wiki/', 'auto_toc': 1, 'auto_tags': 1, 'auto_diary_index': 1, 'list_margin': 0, 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_use_mouse = 1
-let g:vimwiki_auto_chdir = 1
-let g:vimwiki_listsyms = '✗○◐●✓'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
