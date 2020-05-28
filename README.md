@@ -31,12 +31,13 @@ mv ~/.vimrc ~/.vimrc.old && ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vim/colors ~/.vim/colors
 ```
 
+Launch `vim` and run `:PluginInstall`
+
 ### Dev tools
 
 ```bash
 brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager adoptopenjdk mysqlworkbench ngrok
-brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node clojure memcached mysql-client nmap php prettier aws-iam-authenticator
-pip install --user tmuxp
+brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node clojure mysql-client nmap php prettier aws-iam-authenticator
 
 ; Docker
 brew cask install docker docker-toolbox
@@ -62,8 +63,6 @@ brew install youtube-dl ffmpeg
 ### Extras
 
 https://mwholt.blogspot.be/2012/09/fix-home-and-end-keys-on-mac-os-x.html
-
-Launch `vim` and run `:PluginInstall`
 
 ### iTerm
 
