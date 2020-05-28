@@ -1,5 +1,76 @@
 # Use dotfiles
 
+## MacOS
+
+### Reqs
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+brew install git openssh fzf tree openssl python cmake wget freetype htop
+brew cask
+brew cask install iterm2 xquartz
+
+; Zsh
+brew install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+
+; Vim
+brew install vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+; Configs via dotfiles repo
+git clone https://github.com/yezooz/dotfiles.git ~/dotfiles
+mv ~/.zshrc ~/.zshrc.old && ln -s ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/zsh_aliases ~/.zsh_aliases
+ln -s ~/dotfiles/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/gitignore ~/.gitignore
+ln -s ~/dotfiles/gitmessage ~/.gitmessage
+ln -s ~/dotfiles/git_template ~/.git_template
+mv ~/.vimrc ~/.vimrc.old && ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/dotfiles/vim/colors ~/.vim/colors
+```
+
+### Dev tools
+
+```bash
+brew cask install virtualbox virtualbox-extension-pack vagrant vagrant-manager adoptopenjdk mysqlworkbench ngrok
+brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node clojure memcached mysql-client nmap php prettier aws-iam-authenticator
+pip install --user tmuxp
+
+; Docker
+brew cask install docker docker-toolbox
+brew install vagrant-completion docker-completion docker-compose docker-compose-completion docker-machine docker-machine-completion
+
+; K8s
+brew install kubectl eksctl k9s helm kubectx minikube
+
+; NPM
+npm -g install bower grunt nodemon eslint cypress @nestjs/cli
+
+; Editors
+brew cask install sublime-text visual-studio-code intellij-idea phpstorm pycharm webstorm datagrip goland
+```
+
+### Desktop tools
+
+```bash
+brew cask install alfred slack google-chrome firefox postman vlc spotify transmission whatsapp signal dropbox 1password the-unarchiver tor-browser karabiner-elements
+brew install youtube-dl ffmpeg
+```
+
+### Extras
+
+https://mwholt.blogspot.be/2012/09/fix-home-and-end-keys-on-mac-os-x.html
+
+Launch `vim` and run `:PluginInstall`
+
+### iTerm
+
+Install Powerline fonts for iTerm by following instructions on https://github.com/powerline/fonts
+
+Themes https://github.com/mbadolato/iTerm2-Color-Schemes
+
 ## Ubuntu
 
 ### Reqs
@@ -84,70 +155,3 @@ sudo snap install webstorm --classic
 sudo snap install datagrip --classic
 sudo snap install goland --classic
 ```
-
-### iTerm
-
-Install Powerline fonts for iTerm by following instructions on https://github.com/powerline/fonts
-
-Themes https://github.com/mbadolato/iTerm2-Color-Schemes
-
-## MacOS
-
-### Reqs
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew install git ssh tmux fzf tree openssl python cmake wget freetype htop
-
-; Zsh
-brew install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-; Vim
-brew install vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-; Configs via dotfiles repo
-git clone https://github.com/yezooz/dotfiles.git ~/dotfiles
-mv ~/.zshrc ~/.zshrc.old && ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
-ln -s ~/dotfiles/gitignore ~/.gitignore
-ln -s ~/dotfiles/gitmessage ~/.gitmessage
-ln -s ~/dotfiles/git_template ~/.git_template
-mv ~/.vimrc ~/.vimrc.old && ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim/colors ~/.vim/colors
-```
-
-### Dev tools
-
-```bash
-brew cask install xquartz virtualbox virtualbox-extension-pack vagrant vagrant-manager iterm2 sublime-text visual-studio-code adoptopenjdk datagrip goland intellij-idea phpstorm pycharm webstorm mysqlworkbench ngrok
-brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node clojure memcached mysql-client nmap php prettier aws-iam-authenticator
-pip install --user tmuxp
-
-; Docker
-brew cask install docker docker-toolbox
-brew install vagrant-completion docker-completion docker-compose docker-compose-completion docker-machine docker-machine-completion
-
-; K8s
-brew install kubectl eksctl k9s helm kubectx minikube
-
-; NPM
-npm -g install bower grunt nodemon eslint cypress @nestjs/cli
-```
-
-### Desktop tools
-
-```bash
-brew cask install alfred slack google-chrome firefox postman vlc spotify transmission whatsapp signal dropbox 1password the-unarchiver tor-browser karabiner-elements
-brew install youtube-dl ffmpeg
-```
-
-### Extras
-
-https://mwholt.blogspot.be/2012/09/fix-home-and-end-keys-on-mac-os-x.html
-
-Launch `vim` and run `:PluginInstall`
