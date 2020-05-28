@@ -97,7 +97,7 @@ Themes https://github.com/mbadolato/iTerm2-Color-Schemes
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew install git ssh tmux fzf tree openssl python cmake wget freetype
+brew install git ssh tmux fzf tree openssl python cmake wget freetype htop
 
 ; Zsh
 brew install zsh
@@ -124,8 +124,8 @@ ln -s ~/dotfiles/vim/colors ~/.vim/colors
 ### Dev tools
 
 ```bash
-brew cask install xquartz virtualbox virtualbox-extension-pack vagrant jetbrains-toolbox iterm2 sublime-text visual-studio-code
-brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node clojure memcached mysql-client nmap openjdk php
+brew cask install xquartz virtualbox virtualbox-extension-pack vagrant vagrant-manager iterm2 sublime-text visual-studio-code adoptopenjdk datagrip goland intellij-idea phpstorm pycharm webstorm mysqlworkbench ngrok
+brew install go readline awscli awslogs pgcli ruby terraform terraform_landscape composer jmeter lua jq dep node clojure memcached mysql-client nmap php prettier aws-iam-authenticator
 pip install --user tmuxp
 
 ; Docker
@@ -134,13 +134,16 @@ brew install vagrant-completion docker-completion docker-compose docker-compose-
 
 ; K8s
 brew install kubectl eksctl k9s helm kubectx minikube
+
+; NPM
+npm -g install bower grunt nodemon eslint cypress @nestjs/cli
 ```
 
 ### Desktop tools
 
 ```bash
-brew cask install alfred slack google-chrome firefox postman vlc spotify transmission whatsapp signal dropbox 1password the-unarchiver mysqlworkbench karabiner-elements
-brew install youtube-dl
+brew cask install alfred slack google-chrome firefox postman vlc spotify transmission whatsapp signal dropbox 1password the-unarchiver tor-browser karabiner-elements
+brew install youtube-dl ffmpeg
 ```
 
 ### Extras
